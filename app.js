@@ -14,6 +14,10 @@ app.get('/satya', (req, res) => {
     res.send('Hello welocome to devops world, satya is enjoying the course')
   })
 
+app.get('/dummy', (req, res) => {
+    res.send('Hello dummy')
+  })
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
