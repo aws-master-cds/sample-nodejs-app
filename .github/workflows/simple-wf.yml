@@ -52,11 +52,12 @@ jobs:
     - name: helm upgrade 
       run: |
         cd helm-chart 
-        helm upgrade --install sample-nodejs-app ./sample-nodejs-app
+        helm upgrade --install sample-nodejs-app ./sample-nodejs-app --set appImageTag=$GITHUB_RUN_NUMBER
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: 'eu-west-2'
+        GITHUB_RUN_NUMBER: ${{ github.run_number }}
     - name: helm list
       run: | 
         helm list
