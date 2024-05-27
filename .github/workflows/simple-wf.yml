@@ -2,7 +2,7 @@ name: simple wf
 on: 
   push:
     branches:
-      - master
+      - main
 
 
 jobs:
