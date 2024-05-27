@@ -19,7 +19,7 @@ spec:
         app: sample-nodejs-app
     spec:
       containers:
-      - image: awsmastercds/sample-nodejs-app:{{appImageTag}}
+      - image: awsmastercds/sample-nodejs-app:{{ .Values.appImageTag }}
         name: sample-nodejs-app
         resources: {}
 status: {}
