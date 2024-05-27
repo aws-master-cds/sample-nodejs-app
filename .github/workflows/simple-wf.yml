@@ -39,7 +39,7 @@ jobs:
     - name: test eks access
       run: | 
         kubectl get nodes -o wide
-        kubectl get namespace -o name | grep -q "^$namespace/test " || kubectl create ns test
+        kubectl get namespace -o name | grep -q "^namespace/test$" || kubectl create ns test
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
