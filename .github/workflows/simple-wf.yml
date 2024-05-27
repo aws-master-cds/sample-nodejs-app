@@ -32,10 +32,21 @@ jobs:
     - uses: azure/setup-kubectl@v3
       with:
           version: 'v1.29.5' # default is latest stable
-      id: install
+      id: install-kubectl
     - name: test eks access
       run: | 
         kubectl get nodes -o wide
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: 'eu-west-2'
+    - uses: azure/setup-helm@v4.2.0
+      with:
+          version: 'v3.8.0' # default is latest (stable)
+      id: install-helm
+    - name: helm list
+      run: | 
+        helm list
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
