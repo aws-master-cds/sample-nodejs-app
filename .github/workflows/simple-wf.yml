@@ -31,7 +31,7 @@ jobs:
         AWS_DEFAULT_REGION: 'eu-west-2'
     - uses: azure/setup-kubectl@v3
       with:
-          version: '1.29' # default is latest stable
+          version: '1.29.5' # default is latest stable
       id: install
     - name: test eks access
       run: | 
