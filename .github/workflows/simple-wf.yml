@@ -24,7 +24,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs-app:4
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/sample-nodejs-app:${{ github.run_number }}
     - name: get eks kubeconfig
       run: |
         aws eks update-kubeconfig --region eu-west-2 --name demo
