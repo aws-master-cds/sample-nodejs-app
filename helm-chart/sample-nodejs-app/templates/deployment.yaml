@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: sample-nodejs-app
+  name: sample-nodejs-app
+  namespace: test
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: sample-nodejs-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: sample-nodejs-app
+    spec:
+      containers:
+      - image: awsmastercds/sample-nodejs-app:3
+        name: sample-nodejs-app
+        resources: {}
+status: {}
